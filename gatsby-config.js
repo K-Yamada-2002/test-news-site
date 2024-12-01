@@ -6,7 +6,7 @@ module.exports = {
     title: `Humanoid News`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-image", "gatsby-plugin-sitemap", "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
+  plugins: ["gatsby-plugin-image", "gatsby-plugin-sitemap", "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-transformer-remark", {
     resolve: 'gatsby-plugin-google-gtag',
     options: {
       trackingIds: [
@@ -27,6 +27,13 @@ module.exports = {
     options: {
       "name": "pages",
       "path": "./src/pages/"
+    },
+    __key: "pages"
+  }, {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      "name": "content",
+      "path": "./src/content/"
     },
     __key: "pages"
   }]
