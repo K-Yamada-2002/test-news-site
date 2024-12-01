@@ -24,4 +24,4 @@ Tech RoboticsのCEO、ジェーン・スミス氏は次のように述べてい�
 
 > 「Harmony-Xは、日常生活を変えるイノベーションです。家族の一員として、あるいはビジネスのパートナーとして、人々の生活をより良いものにするでしょう。」
 
-詳しい情報は[公式サイト](https://www.techrobotics.com/harmony-x)をご覧ください。
+詳しい情報は[公式サイト](https://www.example.com/harmony-x)をご覧ください。

@@ -6,16 +6,11 @@ const ArticleTemplate = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
 
-  // 最新記事と関連記事（仮データとして使用）
-  const latestArticles = [
-    { title: "最新記事1", slug: "/news/latest-1" },
-    { title: "最新記事2", slug: "/news/latest-2" },
-  ];
+  // 最新記事と関連記事
+  const latestArticles =  data.latest.edges;
+  const relatedArticles = data.related.edges;
 
-  const relatedArticles = [
-    { title: "関連記事1", slug: "/news/related-1" },
-    { title: "関連記事2", slug: "/news/related-2" },
-  ];
+  console.log("latestArticlesの中身:", JSON.stringify(latestArticles, null, 2));
 
   return (
     <div className="article-page">
@@ -39,7 +34,7 @@ const ArticleTemplate = ({ data }) => {
           <ul>
             {latestArticles.map((article, index) => (
               <li key={index}>
-                <Link to={article.slug}>{article.title}</Link>
+                <Link to={article.node.frontmatter.slug}>{article.node.frontmatter.title}</Link>
               </li>
             ))}
           </ul>
@@ -61,7 +56,7 @@ const ArticleTemplate = ({ data }) => {
           <ul>
             {relatedArticles.map((article, index) => (
               <li key={index}>
-                <Link to={article.slug}>{article.title}</Link>
+                <Link to={article.node.frontmatter.slug}>{article.node.frontmatter.title}</Link>
               </li>
             ))}
           </ul>
@@ -77,13 +72,40 @@ const ArticleTemplate = ({ data }) => {
 };
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $tags: [String!]!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")
       }
       html
+    }
+    latest: allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC },
+      limit: 5
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            slug
+            date(formatString: "YYYY-MM-DD")
+          }
+        }
+      }
+    }
+    related: allMarkdownRemark(
+      filter: { frontmatter: { tags: { in: $tags } } }, 
+      limit: 5
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            slug
+          }
+        }
+      }
     }
   }
 `;

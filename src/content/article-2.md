@@ -3,7 +3,7 @@ title: "AIヒューマノイド、医療現場での実証実験開始"
 date: "2024-11-28"
 slug: "humanoid-medical-trials"
 author: "Robotics Healthcare Review"
-category: "医療"
+category: "社会"
 tags: ["ヒューマノイド", "医療", "AI", "実証実験"]
 ---
 

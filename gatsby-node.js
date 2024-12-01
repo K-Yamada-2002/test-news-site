@@ -7,6 +7,7 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               frontmatter {
                 slug
+                tags
               }
             }
           }
@@ -20,6 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
         component: require.resolve(`./src/templates/ArticleTemplate.js`),
         context: {
           slug: node.frontmatter.slug,
+          tags: node.frontmatter.tags,
         },
       });
     });
