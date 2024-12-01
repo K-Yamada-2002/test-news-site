@@ -1,11 +1,12 @@
 ---
 title: "最新型ヒューマノイド『Harmony-X』発表！"
-date: "2024-11-29"
+date: "2024-11-27"
 slug: "harmony-x-release"
 author: "Tech Robotics News"
 category: "新製品"
 tags: ["ヒューマノイド", "AI", "ロボット工学", "最新技術"]
 thumbnail: "./thumbnail-1.jpg"
+summary: "Tech Robotics社が最新ヒューマノイド『Harmony-X』を発表しました。家庭からビジネスまで幅広い用途に対応しています。"
 ---
 
 ロボット工学企業であるTech Roboticsは、最新型ヒューマノイド『Harmony-X』を正式に発表しました。  

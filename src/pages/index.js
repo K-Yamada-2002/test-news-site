@@ -1,23 +1,50 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import "./index.css";
 
 const IndexPage = ({ data }) => {
   const articles = data.allMarkdownRemark.edges;
 
   return (
-    <main>
-      <h1>ニュースサイト</h1>
-      <ul>
-        {articles.map(({ node }) => (
-          <li key={node.id}>
-            <Link to={`/news/${node.frontmatter.slug}`}>
-              <h2>{node.frontmatter.title}</h2>
-            </Link>
-            <p>{node.excerpt}</p>
-          </li>
-        ))}
-      </ul>
-    </main>
+    <div>
+      {/* グローバルナビゲーション */}
+      <header className="global-header">
+        <nav className="navigation">
+          <Link to="/">ホーム</Link>
+          <Link to="/about">サイトについて</Link>
+          <Link to="/categories">カテゴリ</Link>
+        </nav>
+        <div className="search-bar">
+          <input type="text" placeholder="検索..." />
+        </div>
+      </header>
+
+      {/* 記事一覧 */}
+      <div className="article-grid">
+          {articles.map(({ node }) => {
+            const thumbnail = getImage(node.frontmatter.thumbnail);
+            return (
+              <div key={node.frontmatter.slug} className="article-card">
+              <Link to={`/news/${node.frontmatter.slug}`} className="article-link">
+                {/* サムネイル画像 */}
+                {thumbnail && (
+                  <GatsbyImage className="thumbnail" image={thumbnail} alt={`${node.frontmatter.title}のサムネイル`} />
+                )}
+                <h2>{node.frontmatter.title}</h2>
+                <p className="date">{node.frontmatter.date}</p>
+                <p className="excerpt">{node.frontmatter.summary}</p>
+              </Link>
+            </div>
+            );
+          })}
+      </div>
+
+      {/* フッター */}
+      <footer className="global-footer">
+        <p>© 2024 ヒューマノイドニュース. All Rights Reserved.</p>
+      </footer>
+    </div>
   );
 };
 
@@ -30,8 +57,14 @@ export const query = graphql`
           frontmatter {
             title
             slug
+            date
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData(width: 400, layout: CONSTRAINED)
+              }
+            }
+            summary
           }
-          excerpt
         }
       }
     }
