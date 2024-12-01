@@ -5,6 +5,7 @@ slug: "humanoid-social-impact"
 author: "Future Robotics Insights"
 category: "社会"
 tags: ["ヒューマノイド", "社会", "倫理", "未来"]
+thumbnail: "./thumbnail-3.jpg"
 ---
 
 ヒューマノイド技術が進化し続ける中、その社会的影響について議論が高まっています。AIとロボティクスが人間の生活にどのような影響を与えるのか、以下の観点から考えてみましょう。

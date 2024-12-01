@@ -22,6 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           slug: node.frontmatter.slug,
           tags: node.frontmatter.tags,
+          thumbnail: node.frontmatter.thumbnail,
         },
       });
     });

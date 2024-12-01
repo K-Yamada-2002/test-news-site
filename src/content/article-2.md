@@ -5,6 +5,7 @@ slug: "humanoid-medical-trials"
 author: "Robotics Healthcare Review"
 category: "社会"
 tags: ["ヒューマノイド", "医療", "AI", "実証実験"]
+thumbnail: "./thumbnail-2.jpg"
 ---
 
 国内の総合病院で、AIヒューマノイドが医療現場での実証実験を開始しました。このプロジェクトは、AIを活用して医療従事者の負担を軽減し、患者ケアを向上させることを目的としています。

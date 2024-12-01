@@ -43,5 +43,10 @@ module.exports = {
       "path": "./src/styles/"
     },
     __key: "styles"
-  }]
+  }, {
+    resolve: `gatsby-remark-images`,
+    options: {
+      maxWidth: 600, // 画像の最大幅
+    },
+  },]
 };

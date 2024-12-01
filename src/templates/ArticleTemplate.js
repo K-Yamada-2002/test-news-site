@@ -1,16 +1,16 @@
 import React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql, Link } from "gatsby";
 // import "./ArticleTemplate.css";
 
 const ArticleTemplate = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
+  const thumbnail = getImage(frontmatter.thumbnail);
 
   // 最新記事と関連記事
   const latestArticles =  data.latest.edges;
   const relatedArticles = data.related.edges;
-
-  console.log("latestArticlesの中身:", JSON.stringify(latestArticles, null, 2));
 
   return (
     <div className="article-page">
@@ -44,6 +44,9 @@ const ArticleTemplate = ({ data }) => {
         <main className="article-content">
           <h1>{frontmatter.title}</h1>
           <p className="date">{frontmatter.date}</p>
+          {thumbnail && (
+            <GatsbyImage image={thumbnail} alt={`${frontmatter.title}のサムネイル`} />
+          )}
           <div
             className="article-body"
             dangerouslySetInnerHTML={{ __html: html }}
@@ -77,11 +80,16 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")
+        thumbnail {
+          childImageSharp {
+            gatsbyImageData(width: 800, layout: CONSTRAINED)
+          }
+        }
       }
       html
     }
     latest: allMarkdownRemark(
-      sort: { fields: frontmatter___date, order: DESC },
+      sort: {frontmatter: {date: DESC}},
       limit: 5
     ) {
       edges {
