@@ -1,7 +1,7 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql, Link } from "gatsby";
-// import "./ArticleTemplate.css";
+import "./ArticleTemplate.css";
 
 const ArticleTemplate = ({ data }) => {
   const { markdownRemark } = data;
@@ -34,7 +34,7 @@ const ArticleTemplate = ({ data }) => {
           <ul>
             {latestArticles.map((article, index) => (
               <li key={index}>
-                <Link to={article.node.frontmatter.slug}>{article.node.frontmatter.title}</Link>
+                <Link to={`/news/${article.node.frontmatter.slug}`}>{article.node.frontmatter.title}</Link>
               </li>
             ))}
           </ul>
@@ -45,7 +45,11 @@ const ArticleTemplate = ({ data }) => {
           <h1>{frontmatter.title}</h1>
           <p className="date">{frontmatter.date}</p>
           {thumbnail && (
-            <GatsbyImage image={thumbnail} alt={`${frontmatter.title}のサムネイル`} />
+            <GatsbyImage 
+              className="thumbnail" 
+              image={thumbnail} 
+              alt={`${frontmatter.title}のサムネイル`} 
+            />
           )}
           <div
             className="article-body"
@@ -59,7 +63,7 @@ const ArticleTemplate = ({ data }) => {
           <ul>
             {relatedArticles.map((article, index) => (
               <li key={index}>
-                <Link to={article.node.frontmatter.slug}>{article.node.frontmatter.title}</Link>
+                <Link to={`/news/${article.node.frontmatter.slug}`}>{article.node.frontmatter.title}</Link>
               </li>
             ))}
           </ul>

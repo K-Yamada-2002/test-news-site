@@ -1,0 +1,15 @@
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+  }
+  
+  .thumbnail {
+    display: block; /* インライン要素をブロック要素として扱う */
+    margin: 0 auto; /* 上下は0、左右は自動で中央揃え */
+    max-width: 80%; /* レスポンシブ対応: 親要素を超えない */
+    height: auto; /* アスペクト比を維持 */
+  }
