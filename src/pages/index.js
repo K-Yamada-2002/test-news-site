@@ -18,9 +18,9 @@ const IndexPage = ({ data }) => {
               <div key={node.frontmatter.slug} className="article-card">
               <Link to={`/news/${node.frontmatter.slug}`} className="article-link">
                 {/* サムネイル画像 */}
-                {thumbnail && (
+                <div className="thumbnail-wrapper">
                   <GatsbyImage className="thumbnail" image={thumbnail} alt={`${node.frontmatter.title}のサムネイル`} />
-                )}
+                </div>
                 <h2>{node.frontmatter.title}</h2>
                 <p className="date">{node.frontmatter.date}</p>
                 <p className="excerpt">{node.frontmatter.summary}</p>

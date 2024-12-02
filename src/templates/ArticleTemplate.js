@@ -32,13 +32,13 @@ const ArticleTemplate = ({ data }) => {
       <main className="article-content">
         <h1>{frontmatter.title}</h1>
         <p className="date">{frontmatter.date}</p>
-        {thumbnail && (
+        <div className="thumbnail-wrapper">
           <GatsbyImage 
             className="thumbnail" 
             image={thumbnail} 
             alt={`${frontmatter.title}のサムネイル`} 
           />
-        )}
+        </div>
         <div
           className="article-body"
           dangerouslySetInnerHTML={{ __html: html }}

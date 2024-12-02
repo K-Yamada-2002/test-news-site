@@ -65,8 +65,13 @@
   }
 
   /* サムネイル画像 */
-.thumbnail {
+.thumbnail-wrapper {
     width: 100%; /* 親要素の幅に合わせる */
     height: auto; /* アスペクト比を維持 */
     display: block;
+  }
+
+  .thumbnail {
+    width: 100%;
+    height: auto; /* アスペクト比を維持 */
   }
