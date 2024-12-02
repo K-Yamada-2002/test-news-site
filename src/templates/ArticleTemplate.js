@@ -1,4 +1,6 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql, Link } from "gatsby";
 import "./ArticleTemplate.css";
@@ -15,6 +17,10 @@ const ArticleTemplate = ({ data }) => {
   const relatedArticles = data.related.edges;
 
   return (
+    <>
+    <Helmet>
+      <title>{`${frontmatter.title} | Humanoid News`}</title>
+    </Helmet>
     <Layout>
       {/* 左サイドバー：最新記事 */}
       <aside className="sidebar latest-articles">
@@ -57,6 +63,7 @@ const ArticleTemplate = ({ data }) => {
         </ul>
       </aside>
     </Layout>
+    </>
   );
 };
 

@@ -31,28 +31,27 @@ module.exports = {
   }, {
     resolve: 'gatsby-source-filesystem',
     options: {
-      "name": "pages",
-      "path": "./src/pages/"
-    },
-    __key: "pages"
-  }, {
-    resolve: 'gatsby-source-filesystem',
-    options: {
       "name": "content",
       "path": "./src/content/"
     },
     __key: "content"
   }, {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "styles",
-      "path": "./src/styles/"
-    },
-    __key: "styles"
-  }, {
     resolve: `gatsby-remark-images`,
     options: {
       maxWidth: 600, // 画像の最大幅
     },
-  },]
+  }, {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `Humanoid News`,
+      short_name: `Humanoid News`,
+      start_url: `/`,
+      background_color: `#ffffff`,
+      theme_color: `#333333`,
+      display: `standalone`,
+      icon: `static/favicon.jpg`, // ファビコン画像のパス
+    },
+  },
+  `gatsby-plugin-react-helmet`, // ページごとにメタデータを設定可能にする]
+  ]
 };

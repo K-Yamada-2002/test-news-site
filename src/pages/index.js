@@ -1,4 +1,6 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./index.css";
@@ -9,6 +11,10 @@ const IndexPage = ({ data }) => {
   const articles = data.allMarkdownRemark.edges;
 
   return (
+    <>
+    <Helmet>
+      <title>Humanoid News</title>
+    </Helmet>
     <Layout>
       {/* 記事一覧 */}
       <div className="article-grid">
@@ -30,6 +36,7 @@ const IndexPage = ({ data }) => {
           })}
       </div>
     </Layout>
+    </>
   );
 };
 
