@@ -11,13 +11,15 @@
   
   /* グリッドレイアウト */
   .article-grid {
+    flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
   }
   /* 記事カード */
   .article-card {
+    font-family: Arial, sans-serif;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;

@@ -3,23 +3,13 @@ import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./index.css";
 
+import Layout from "/src/components/Layout";
+
 const IndexPage = ({ data }) => {
   const articles = data.allMarkdownRemark.edges;
 
   return (
-    <div>
-      {/* グローバルナビゲーション */}
-      <header className="global-header">
-        <nav className="navigation">
-          <Link to="/">ホーム</Link>
-          <Link to="/about">サイトについて</Link>
-          <Link to="/categories">カテゴリ</Link>
-        </nav>
-        <div className="search-bar">
-          <input type="text" placeholder="検索..." />
-        </div>
-      </header>
-
+    <Layout>
       {/* 記事一覧 */}
       <div className="article-grid">
           {articles.map(({ node }) => {
@@ -39,12 +29,7 @@ const IndexPage = ({ data }) => {
             );
           })}
       </div>
-
-      {/* フッター */}
-      <footer className="global-footer">
-        <p>© 2024 ヒューマノイドニュース. All Rights Reserved.</p>
-      </footer>
-    </div>
+    </Layout>
   );
 };
 
